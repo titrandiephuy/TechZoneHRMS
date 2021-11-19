@@ -9,7 +9,7 @@ namespace TechZoneHRMS.API.Models
     {
         public Employee()
         {
-            Leaves = new HashSet<Leaf>();
+            Leaves = new HashSet<Leave>();
         }
 
         public int EmployeeId { get; set; }
@@ -31,6 +31,6 @@ namespace TechZoneHRMS.API.Models
         public virtual Department Department { get; set; }
         public virtual EducationLevel EducationLevel { get; set; }
         public virtual Salary Salary { get; set; }
-        public virtual ICollection<Leaf> Leaves { get; set; }
+        public virtual ICollection<Leave> Leaves { get; set; }
     }
 }
