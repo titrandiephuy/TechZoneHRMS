@@ -21,7 +21,7 @@ namespace TechZoneHRMS.API.Models
         public virtual DbSet<EducationLevel> EducationLevels { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<InChange> InChanges { get; set; }
-        public virtual DbSet<Leaf> Leaves { get; set; }
+        public virtual DbSet<Leave> Leaves { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<Salary> Salaries { get; set; }
 
@@ -138,7 +138,7 @@ namespace TechZoneHRMS.API.Models
                     .HasConstraintName("FK__InChange__Positi__60A75C0F");
             });
 
-            modelBuilder.Entity<Leaf>(entity =>
+            modelBuilder.Entity<Leave>(entity =>
             {
                 entity.HasKey(e => e.LeaveId)
                     .HasName("PK__Leaves__796DB95904E85C93");
