@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using TechZoneHRMS.API.Models;
+using TechZoneHRMS.Domain.Models;
+using TechZoneHRMS.Domain.Response;
 
 namespace TechZoneHRMS.Service.Interface
 {
@@ -14,7 +16,7 @@ namespace TechZoneHRMS.Service.Interface
         Task<ActionResult<IEnumerable<Department>>> GetDepartments();
         Task<ActionResult<Department>> GetDepartmentById(int id);
         Task<IActionResult> EditDepartment(int id, Department department);
-        Task<ActionResult<Department>> CreateDepartment(Department department);
+        Task<ActionResult<Result>> CreateDepartment(CreateDepartment create);
         Task<IActionResult> DeleteDepartment(int id);
     }
 }

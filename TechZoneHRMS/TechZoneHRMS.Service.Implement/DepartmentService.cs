@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TechZoneHRMS.API.Models;
+using TechZoneHRMS.Domain.Models;
+using TechZoneHRMS.Domain.Response;
 using TechZoneHRMS.Service.Interface;
 
 namespace TechZoneHRMS.Service.Implement
@@ -66,12 +68,36 @@ namespace TechZoneHRMS.Service.Implement
         }
 
         // POST: api/Departments
-        public async Task<ActionResult<Department>> CreateDepartment(Department department)
+        public async Task<ActionResult<Result>> CreateDepartment(CreateDepartment create)
         {
-            context.Departments.Add(department);
-            await context.SaveChangesAsync();
+            var result = new Result()
+            {
+                Success = false,
+                Message = "Something went wrong please try again!"
+            };
+            try
+            {
+                var department = new Department()
+                {
+                    DepartmentName = create.DepartmentName,
+                    DepartmentLocation = create.DepartmentLocation,
+                    DepartmentPhoneNumber = create.DepartmentPhoneNumber,
+                    DepartmentStatus = create.DepartmentStatus
+                };
 
-            return CreatedAtAction("GetDepartment", new { id = department.DepartmentId }, department);
+                context.Departments.Add(department);
+                if (await context.SaveChangesAsync() > 0)
+                {
+                    result.Success = true;
+                    result.Message = "Product created successfully";
+                };
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return result;
+            }
+
         }
 
         // DELETE: api/Departments/5
