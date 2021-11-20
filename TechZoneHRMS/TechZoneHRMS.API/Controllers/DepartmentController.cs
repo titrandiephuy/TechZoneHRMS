@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TechZoneHRMS.API.Models;
+using TechZoneHRMS.Domain.Models;
+using TechZoneHRMS.Domain.Response;
 using TechZoneHRMS.Service.Interface;
 
 namespace TechZoneHRMS.API.Controllers
@@ -32,7 +34,7 @@ namespace TechZoneHRMS.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Department>> CreateDepartment(Department department)
+        public async Task<ActionResult<Result>> CreateDepartment(CreateDepartment department)
         {
             return await departmentService.CreateDepartment(department);
         }
