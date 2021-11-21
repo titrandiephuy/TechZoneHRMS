@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TechZoneHRMS.API.Models;
 using TechZoneHRMS.Domain.Models;
+using TechZoneHRMS.Domain.Models.Department;
 using TechZoneHRMS.Domain.Response;
 using TechZoneHRMS.Service.Interface;
 
@@ -22,13 +23,13 @@ namespace TechZoneHRMS.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Department>>> GetDepartments()
+        public async Task<IEnumerable<DepartmentDetail>> GetDepartments()
         {
             return await departmentService.GetDepartments();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Department>> GetDepartmentById(int id)
+        public async Task<ActionResult<DepartmentDetail>> GetDepartmentById(int id)
         {
             return await departmentService.GetDepartmentById(id);
         }
@@ -40,9 +41,9 @@ namespace TechZoneHRMS.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> EditDepartment(int id, Department department)
+        public async Task<IActionResult> EditDepartment(int id, DepartmentDetail editdepartment)
         {
-            return await departmentService.EditDepartment(id, department);
+            return await departmentService.EditDepartment(id, editdepartment);
         }
 
         [HttpPatch]

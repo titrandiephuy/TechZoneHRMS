@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TechZoneHRMS.API.Models;
 using TechZoneHRMS.Domain.Models;
+using TechZoneHRMS.Domain.Models.Department;
 using TechZoneHRMS.Domain.Response;
 using TechZoneHRMS.Service.Interface;
 
@@ -20,32 +21,52 @@ namespace TechZoneHRMS.Service.Implement
         {
             this.context = context;
         }
-        public async Task<ActionResult<IEnumerable<Department>>> GetDepartments()
+        public async Task<IEnumerable<DepartmentDetail>> GetDepartments()
         {
-            return await context.Departments.ToListAsync();
+            return (await context.Departments.ToListAsync()).Select(d => new DepartmentDetail()
+            {
+                DepartmentId = d.DepartmentId,
+                DepartmentName = d.DepartmentName,
+                DepartmentPhoneNumber = d.DepartmentPhoneNumber,
+                DepartmentLocation = d.DepartmentLocation,
+                DepartmentStatus = d.DepartmentStatus
+            });
         }
 
         // GET: api/Departments/5
-        public async Task<ActionResult<Department>> GetDepartmentById(int id)
+        public async Task<ActionResult<DepartmentDetail>> GetDepartmentById(int id)
         {
             var department = await context.Departments.FindAsync(id);
-
+            
             if (department == null)
             {
                 return NotFound();
             }
-
-            return department;
+            DepartmentDetail departmentDetail = new DepartmentDetail()
+            {
+                DepartmentId = department.DepartmentId,
+                DepartmentName = department.DepartmentName,
+                DepartmentPhoneNumber = department.DepartmentPhoneNumber,
+                DepartmentLocation = department.DepartmentLocation,
+                DepartmentStatus = department.DepartmentStatus
+            };
+            return departmentDetail;
         }
 
         // PUT: api/Departments/5
-        public async Task<IActionResult> EditDepartment(int id, Department department)
+        public async Task<IActionResult> EditDepartment(int id, DepartmentDetail editdepartment)
         {
+            var department = await context.Departments.FindAsync(id);
+
             if (id != department.DepartmentId)
             {
                 return BadRequest();
             }
-
+            department.DepartmentId = id;
+            department.DepartmentName = editdepartment.DepartmentName;
+            department.DepartmentLocation = editdepartment.DepartmentLocation;
+            department.DepartmentPhoneNumber = editdepartment.DepartmentPhoneNumber;
+            department.DepartmentStatus = editdepartment.DepartmentStatus;
             context.Entry(department).State = EntityState.Modified;
 
             try
