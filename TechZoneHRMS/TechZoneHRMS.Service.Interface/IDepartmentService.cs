@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using TechZoneHRMS.API.Models;
 using TechZoneHRMS.Domain.Models;
+using TechZoneHRMS.Domain.Models.Department;
 using TechZoneHRMS.Domain.Response;
 
 namespace TechZoneHRMS.Service.Interface
 {
     public interface IDepartmentService
     {
-        Task<ActionResult<IEnumerable<Department>>> GetDepartments();
-        Task<ActionResult<Department>> GetDepartmentById(int id);
-        Task<IActionResult> EditDepartment(int id, Department department);
+        Task<IEnumerable<DepartmentDetail>> GetDepartments();
+        Task<ActionResult<DepartmentDetail>> GetDepartmentById(int id);
+        Task<IActionResult> EditDepartment(int id, DepartmentDetail editdepartment);
         Task<ActionResult<Result>> CreateDepartment(CreateDepartment create);
         Task<IActionResult> DeleteDepartment(int id);
     }

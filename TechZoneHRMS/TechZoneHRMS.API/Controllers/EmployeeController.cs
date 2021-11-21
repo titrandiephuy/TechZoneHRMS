@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TechZoneHRMS.API.Models;
+using TechZoneHRMS.Domain.Models.Employee;
+using TechZoneHRMS.Domain.Response;
 using TechZoneHRMS.Service.Interface;
 
 namespace TechZoneHRMS.API.Controllers
@@ -21,27 +23,27 @@ namespace TechZoneHRMS.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployees()
+        public async Task<IEnumerable<EmployeeDetail>> GetEmployees()
         {
             return await employeeService.GetEmployees();
         }
 
         [HttpGet("id")]
-        public async Task<ActionResult<Employee>> GetEmployeeById(int id)
+        public async Task<ActionResult<EmployeeDetail>> GetEmployeeById(int id)
         {
             return await employeeService.GetEmployeeById(id);
         }
 
         [HttpPost]
-        public async Task<ActionResult<Employee>> CreateEmployee(Employee employee)
+        public async Task<ActionResult<Result>> CreateEmployee(CreateEmployee createEmployee)
         {
-            return await employeeService.CreateEmployee(employee);
+            return await employeeService.CreateEmployee(createEmployee);
         }
 
         [HttpPut]
-        public async Task<IActionResult> EditEmployee(int id, Employee employee)
+        public async Task<IActionResult> EditEmployee(int id, EditEmployee editEmployee)
         {
-            return await employeeService.EditEmployee(id, employee);
+            return await employeeService.EditEmployee(id, editEmployee);
         }
 
         [HttpPatch]

@@ -17,8 +17,4 @@
     <None Remove="Models\Department\" />
     <None Remove="Response\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Department\" />
-    <Folder Include="Response\" />
-  </ItemGroup>
 </Project>
