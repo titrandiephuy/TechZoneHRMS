@@ -41,7 +41,7 @@ namespace TechZoneHRMS.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> EditDepartment(int id, DepartmentDetail editdepartment)
+        public async Task<IActionResult> EditDepartment(int id, EditDepartment editdepartment)
         {
             return await departmentService.EditDepartment(id, editdepartment);
         }

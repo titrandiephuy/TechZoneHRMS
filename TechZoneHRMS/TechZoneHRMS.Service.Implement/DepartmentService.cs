@@ -54,7 +54,7 @@ namespace TechZoneHRMS.Service.Implement
         }
 
         // PUT: api/Departments/5
-        public async Task<IActionResult> EditDepartment(int id, DepartmentDetail editdepartment)
+        public async Task<IActionResult> EditDepartment(int id, EditDepartment editdepartment)
         {
             var department = await context.Departments.FindAsync(id);
 
