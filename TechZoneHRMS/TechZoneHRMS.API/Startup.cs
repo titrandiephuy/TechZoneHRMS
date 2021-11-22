@@ -54,7 +54,7 @@ namespace TechZoneHRMS.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors(option => option.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

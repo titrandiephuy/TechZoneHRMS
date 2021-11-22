@@ -50,7 +50,7 @@ namespace TechZoneHRMS.MVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Department}/{action=Index}/{id?}");
             });
         }
     }

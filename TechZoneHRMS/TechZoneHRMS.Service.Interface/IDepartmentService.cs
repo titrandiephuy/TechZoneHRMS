@@ -6,9 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using TechZoneHRMS.API.Models;
-using TechZoneHRMS.Domain.Models;
-using TechZoneHRMS.Domain.Models.Department;
+using TechZoneHRMS.Service.Interface;
 using TechZoneHRMS.Domain.Response;
+using TechZoneHRMS.Domain.Models.Department;
+using TechZoneHRMS.Domain.Models;
 
 namespace TechZoneHRMS.Service.Interface
 {
