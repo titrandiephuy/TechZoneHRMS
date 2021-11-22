@@ -16,5 +16,10 @@
   <ItemGroup>
     <None Remove="Models\Department\" />
     <None Remove="Response\" />
+    <None Remove="Models\Employee\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Department\" />
+    <Folder Include="Models\Employee\" />
   </ItemGroup>
 </Project>

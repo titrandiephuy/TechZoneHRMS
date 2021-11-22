@@ -14,4 +14,16 @@
     <ProjectReference Include="..\TechZoneHRMS.Service.Interface\TechZoneHRMS.Service.Interface.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Common\" />
+    <None Remove="Helpers\" />
+    <None Remove="Models\Departments\" />
+    <None Remove="Views\Deparment\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commons\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Models\Departments\" />
+    <Folder Include="Views\Department\" />
+  </ItemGroup>
 </Project>
