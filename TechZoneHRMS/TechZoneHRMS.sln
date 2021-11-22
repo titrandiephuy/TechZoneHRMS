@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechZoneHRMS.API", "TechZoneHRMS.API\TechZoneHRMS.API.csproj", "{3FBEE54F-36F5-4E36-B219-2561F8B250BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechZoneHRMS.API", "TechZoneHRMS.API\TechZoneHRMS.API.csproj", "{3FBEE54F-36F5-4E36-B219-2561F8B250BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechZoneHRMS.Service.Interface", "TechZoneHRMS.Service.Interface\TechZoneHRMS.Service.Interface.csproj", "{821B3378-3BB5-4263-94CA-53B5ED90BD27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechZoneHRMS.Service.Interface", "TechZoneHRMS.Service.Interface\TechZoneHRMS.Service.Interface.csproj", "{821B3378-3BB5-4263-94CA-53B5ED90BD27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechZoneHRMS.Service.Implement", "TechZoneHRMS.Service.Implement\TechZoneHRMS.Service.Implement.csproj", "{8546F14A-BCE2-4A24-AD4B-6E5350723547}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechZoneHRMS.Service.Implement", "TechZoneHRMS.Service.Implement\TechZoneHRMS.Service.Implement.csproj", "{8546F14A-BCE2-4A24-AD4B-6E5350723547}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechZoneHRMS.Domain", "TechZoneHRMS.Domain\TechZoneHRMS.Domain.csproj", "{E6274433-F7B9-4CCE-93D6-C38B08CD8378}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechZoneHRMS.Domain", "TechZoneHRMS.Domain\TechZoneHRMS.Domain.csproj", "{E6274433-F7B9-4CCE-93D6-C38B08CD8378}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechZoneHRMS.MVC", "TechZoneHRMS.MVC\TechZoneHRMS.MVC.csproj", "{540510D1-8365-4EB4-86BC-D01B8086D2C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{E6274433-F7B9-4CCE-93D6-C38B08CD8378}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6274433-F7B9-4CCE-93D6-C38B08CD8378}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6274433-F7B9-4CCE-93D6-C38B08CD8378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{540510D1-8365-4EB4-86BC-D01B8086D2C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{540510D1-8365-4EB4-86BC-D01B8086D2C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{540510D1-8365-4EB4-86BC-D01B8086D2C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{540510D1-8365-4EB4-86BC-D01B8086D2C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
