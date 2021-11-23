@@ -17,7 +17,7 @@ namespace TechZoneHRMS.Service.Interface
     {
         Task<IEnumerable<DepartmentDetail>> GetDepartments();
         Task<ActionResult<DepartmentDetail>> GetDepartmentById(int id);
-        Task<IActionResult> EditDepartment(int id, EditDepartment editdepartment);
+        Task<ActionResult<Result>> EditDepartment(DepartmentDetail editdepartment);
         Task<ActionResult<Result>> CreateDepartment(CreateDepartment create);
         Task<IActionResult> DeleteDepartment(int id);
     }

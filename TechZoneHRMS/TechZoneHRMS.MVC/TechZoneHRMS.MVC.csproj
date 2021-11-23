@@ -12,6 +12,9 @@
   <ItemGroup>
     <ProjectReference Include="..\TechZoneHRMS.Service.Implement\TechZoneHRMS.Service.Implement.csproj" />
     <ProjectReference Include="..\TechZoneHRMS.Service.Interface\TechZoneHRMS.Service.Interface.csproj" />
+    <ProjectReference Include="..\TechZoneHRMS.Domain\TechZoneHRMS.Domain.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 
   <ItemGroup>
