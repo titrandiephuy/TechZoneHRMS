@@ -39,6 +39,32 @@ department.showData = function () {
         }
     });
 }
+    department.save = function () {
+        let createDepObj = {
+            departmentName: $('#departmentName').val(),
+            departmentPhoneNumber: $('#departmentPhoneNumber').val(),
+            departmentLocation: $('#departmentLocation').val(),
+            departmentStatus: $('#departmentStatus').is(':checked')
+        };
+            $.ajax({
+                url: apiUrl,
+                method: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify(createDepObj),
+                success: function (data) {
+                    if (data.success) {
+                        $('#add_department').modal('hide');
+                        $.notify("Product has been created successfully!", "success");
+                        department.showData();
+                    }
+                    else {
+                        $.notify("Something went wrong, please try again!", "error");
+                    }
+                }
+            });
+    }
+
 $(document).ready(function () {
     department.showData();
 });

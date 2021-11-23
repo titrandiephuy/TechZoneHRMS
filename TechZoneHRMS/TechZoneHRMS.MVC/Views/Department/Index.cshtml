@@ -37,6 +37,44 @@
         </div>
     </div>
 </div>
+<!-- Add Department Modal -->
+<div id="add_department" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Department</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formDepartment" method="post">
+                    <div class="form-group">
+                        <label>Department Name <span class="text-danger">*</span></label>
+                        <input class="form-control" type="text" data-rule-required="true" id="departmentName" name="DepartmentName" data-msg-required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Department Phone Number <span class="text-danger">*</span></label>
+                        <input class="form-control" type="text" id="departmentPhoneNumber" data-rule-required="true" data-msg-required="required" name="DepartmentPhoneNumber">
+                    </div>
+                    <div class="form-group">
+                        <label>Department Location <span class="text-danger">*</span></label>
+                        <input class="form-control" type="text" id="departmentLocation" data-rule-required="true" data-msg-required="required" name="DepartmentLocation">
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" id="departmentStatus" class="form-check-input" data-msg-required="required" name="Status"> Trạng Thái
+                        </label>
+                    </div>
+                </form>
+                <div class="submit-section">
+                    <a href="javascript:;" onclick="department.save()" id="btnSave" class="btn btn-primary submit-btn">Submit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Add Department Modal -->
 @section scripts {
     <script src="js/Department.js" asp-append-version="true"></script>
 }

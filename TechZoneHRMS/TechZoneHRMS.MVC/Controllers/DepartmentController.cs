@@ -17,18 +17,17 @@ namespace TechZoneHRMS.MVC.Controllers
             return View();
         }
         [HttpGet]
-        [Route("/Department/Get")]
+        [Route("api/Department")]
         public async Task<IActionResult> Get()
         {
-            var data = await ApiHelper.HttpGet<List<Department>>(@$"{Common.ApiUrl}Category");
+            var data = ApiHelper.HttpGet<List<Department>>(@$"{Common.ApiUrl}Department");
             return Ok(data);
         }
-        [HttpGet]
-        [Route("/Department/GetDepartmentById")]
-        public async Task<Department> GetDepartmentById([FromQuery] int id)
+        [HttpPost]
+        [Route("api/Department")]
+        public async Task<IActionResult> Create([FromBody] CreateDepartment model)
         {
-            return await ApiHelper.HttpGet<Department>(@$"{Common.ApiUrl}Category/GetDepartmentById?id=" + id);
+            return Ok(ApiHelper.HttpPost<CreateDepartmentResult>(@$"{Common.ApiUrl}Department", "POST", model));
         }
-
     }
 }
