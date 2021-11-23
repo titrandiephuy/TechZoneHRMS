@@ -19,11 +19,13 @@
     <None Remove="Helpers\" />
     <None Remove="Models\Departments\" />
     <None Remove="Views\Deparment\" />
+    <None Remove="Views\Employee\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commons\" />
     <Folder Include="Helpers\" />
     <Folder Include="Models\Departments\" />
     <Folder Include="Views\Department\" />
+    <Folder Include="Views\Employee\" />
   </ItemGroup>
 </Project>
