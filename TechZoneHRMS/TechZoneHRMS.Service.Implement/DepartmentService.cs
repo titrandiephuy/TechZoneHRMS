@@ -54,38 +54,35 @@ namespace TechZoneHRMS.Service.Implement
         }
 
         // PUT: api/Departments/5
-        public async Task<IActionResult> EditDepartment(int id, EditDepartment editdepartment)
+        public async Task<ActionResult<Result>> EditDepartment(DepartmentDetail editdepartment)
         {
-            var department = await context.Departments.FindAsync(id);
-
-            if (id != department.DepartmentId)
+            var result = new Result()
             {
-                return BadRequest();
-            }
-            department.DepartmentId = id;
-            department.DepartmentName = editdepartment.DepartmentName;
-            department.DepartmentLocation = editdepartment.DepartmentLocation;
-            department.DepartmentPhoneNumber = editdepartment.DepartmentPhoneNumber;
-            department.DepartmentStatus = editdepartment.DepartmentStatus;
-            context.Entry(department).State = EntityState.Modified;
+                Success = false,
+                Message = "Something went wrong please try again!"
+            };
 
             try
             {
-                await context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!DepartmentExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                var department = await context.Departments.FirstOrDefaultAsync(d => d.DepartmentId == editdepartment.DepartmentId);
 
-            return NoContent();
+                department.DepartmentId = editdepartment.DepartmentId;
+                department.DepartmentName = editdepartment.DepartmentName;
+                department.DepartmentLocation = editdepartment.DepartmentLocation;
+                department.DepartmentPhoneNumber = editdepartment.DepartmentPhoneNumber;
+                department.DepartmentStatus = editdepartment.DepartmentStatus;
+                context.Entry(department).State = EntityState.Modified;
+                if (await context.SaveChangesAsync() > 0)
+                {
+                    result.Success = true;
+                    result.Message = "Product edited successfully";
+                };
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return result;
+            }
         }
 
         // POST: api/Departments
