@@ -14,7 +14,7 @@ namespace TechZoneHRMS.Service.Interface
     {
         Task<IEnumerable<EmployeeDetail>> GetEmployees();
         Task<ActionResult<EmployeeDetail>> GetEmployeeById(int id);
-        Task<IActionResult> EditEmployee(int id, EditEmployee editEmployee);
+        Task<ActionResult<Result>> EditEmployee(EditEmployee editEmployee);
         Task<ActionResult<Result>> CreateEmployee(CreateEmployee createEmployee);
         Task<IActionResult> DeleteEmployee(int id);
     }

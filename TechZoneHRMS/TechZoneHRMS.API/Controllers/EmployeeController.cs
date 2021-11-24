@@ -41,9 +41,9 @@ namespace TechZoneHRMS.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> EditEmployee(int id, EditEmployee editEmployee)
+        public async Task<ActionResult<Result>> EditEmployee(EditEmployee editEmployee)
         {
-            return await employeeService.EditEmployee(id, editEmployee);
+            return await employeeService.EditEmployee(editEmployee);
         }
 
         [HttpPatch]

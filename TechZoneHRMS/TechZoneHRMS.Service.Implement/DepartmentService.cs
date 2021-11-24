@@ -75,7 +75,7 @@ namespace TechZoneHRMS.Service.Implement
                 if (await context.SaveChangesAsync() > 0)
                 {
                     result.Success = true;
-                    result.Message = "Product edited successfully";
+                    result.Message = "Derpartment edited successfully";
                 };
                 return result;
             }
@@ -107,7 +107,7 @@ namespace TechZoneHRMS.Service.Implement
                 if (await context.SaveChangesAsync() > 0)
                 {
                     result.Success = true;
-                    result.Message = "Product created successfully";
+                    result.Message = "Department created successfully";
                 };
                 return result;
             }

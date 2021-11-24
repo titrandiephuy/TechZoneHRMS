@@ -78,48 +78,46 @@ namespace TechZoneHRMS.Service.Implement
         }
 
         // PUT: api/Employees/5
-        public async Task<IActionResult> EditEmployee(int id, EditEmployee editEmployee)
+        public async Task<ActionResult<Result>> EditEmployee(EditEmployee editEmployee)
         {
-            var employee = await context.Employees.FindAsync(id);
-            if (id != employee.EmployeeId)
+            
+            var result = new Result()
             {
-                return BadRequest();
-            }
-            employee.EmployeeId = id;
-            employee.FirstName = editEmployee.FirstName;
-            employee.LastName = editEmployee.LastName;
-            employee.Gender = editEmployee.Gender;
-            employee.EmployeePhoneNumber = editEmployee.EmployeePhoneNumber;
-            employee.Email = editEmployee.Email;
-            employee.EmployeeAddress = editEmployee.EmployeeAddress;
-            employee.DateOfBirth = editEmployee.DateOfBirth;
-            employee.PlaceOfOrigin = editEmployee.PlaceOfOrigin;
-            employee.Ethnicity = editEmployee.Ethnicity;
-            employee.EmployeeAvatar = editEmployee.EmployeeAvatar;
-            employee.DepartmentId = editEmployee.DepartmentId;
-            employee.SalaryId = editEmployee.SalaryId;
-            employee.EducationLevelId = editEmployee.EducationLevelId;
-            employee.EmployeeStatus = editEmployee.EmployeeStatus;
-
-            context.Entry(employee).State = EntityState.Modified;
-
+                Success = false,
+                Message = "Something went wrong please try again!"
+            };
             try
             {
-                await context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EmployeeExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                var employee = await context.Employees.FirstOrDefaultAsync(e => e.EmployeeId == editEmployee.EmployeeId);
+                employee.EmployeeId = editEmployee.EmployeeId;
+                employee.FirstName = editEmployee.FirstName;
+                employee.LastName = editEmployee.LastName;
+                employee.Gender = editEmployee.Gender;
+                employee.EmployeePhoneNumber = editEmployee.EmployeePhoneNumber;
+                employee.Email = editEmployee.Email;
+                employee.EmployeeAddress = editEmployee.EmployeeAddress;
+                employee.DateOfBirth = editEmployee.DateOfBirth;
+                employee.PlaceOfOrigin = editEmployee.PlaceOfOrigin;
+                employee.Ethnicity = editEmployee.Ethnicity;
+                employee.EmployeeAvatar = editEmployee.EmployeeAvatar;
+                employee.DepartmentId = editEmployee.DepartmentId;
+                employee.SalaryId = editEmployee.SalaryId;
+                employee.EducationLevelId = editEmployee.EducationLevelId;
+                employee.EmployeeStatus = editEmployee.EmployeeStatus;
 
-            return NoContent();
+                context.Entry(employee).State = EntityState.Modified;
+                if(await context.SaveChangesAsync()>0)
+                {
+                    result.Success = true;
+                    result.Message = "Employee edited successfully";
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+                return result;
+            }
         }
 
         // POST: api/Employees
