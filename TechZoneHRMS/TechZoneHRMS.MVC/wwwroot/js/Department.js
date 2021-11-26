@@ -57,7 +57,7 @@ department.save = function () {
                 success: function (data) {
                     if (data.success) {
                         $('#addDepartment').modal('hide');
-                        $.notify("Product has been created successfully!", "success");
+                        $.notify("Department has been created successfully!", "success");
                         department.showData();
                     }
                     else {
@@ -82,7 +82,7 @@ department.save = function () {
                 success: function (data) {
                     if (data.success) {
                         $('#addDepartment').modal('hide');
-                        $.notify("Product has been updated successfully!", "success");
+                        $.notify("Department has been updated successfully!", "success");
                         department.showData();
                     }
                     else {
